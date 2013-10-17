@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Imageurl:</b>
+  <%= @answer.imageUrl %>
+</p>
+
+<p>
+  <b>Kanjiid:</b>
+  <%= @answer.kanjiId %>
+</p>
+
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>
