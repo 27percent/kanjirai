@@ -1,47 +1,58 @@
 body {
-  position: relative; background: #ECEEF3; padding: 0px; margin: 0px;
+  position: relative; background: url('mountains.png')top center repeat-x #ad2f19; padding: 0px; margin: 0px;
 	color: #555; font-weight: 300; line-height: 1.5em; height: 100%;
 	font-family: 'Helvetica Neue', helvetica, arial, serif;
 }
 
 /* CANVAS STYLES
 -------------------------------------------------------------------------------------*/
-.literally { position: absolute; bottom: 0; width: 100%; height: 100%;}
+canvas { background: url('wait.png') center center no-repeat #f5f5f5; }
+.literally { background: url('wait.png') center center no-repeat; position: absolute; bottom: 0; width: 100%; height: 100%;}
+.toolbar { padding: 15px 0px; }
+.toolbar-row { border: none !important; }
 .toolbar-row-left { display: none !important; }
 .undo-button, .redo-button, .zoom-out-button, .zoom-in-button, .zoom-display { display: none !important; }
 
 /* APPLICATION STYLES
 -------------------------------------------------------------------------------------*/
+.uploading { width: 100%; height: 100%; z-index: 9999; background: url('uploading.png') center center no-repeat #fff;
+  position: fixed; top: 0px; bottom: 0px; left: 0px; right: 0px; display: none;
+}
+.draw { font-size: 3em; z-index: 9998; line-height: 1em; color: #ddd; font-weight: bold; position: absolute; top: 40%; width: 100%; text-align: center; }
 .navigation {
-  position: fixed; top: 0px; z-index: 9999; display: block; overflow: visible;
-  padding: 4px 0px; width: 100%; left: 0px right: 0px; top: 0px;
+  position: fixed; top: 0px; z-index: 8000; display: block; overflow: visible;
+  padding: 0px 0px 0px 0px; width: 100%; left: 0px right: 0px; top: 0px;
   background: #2E3137; text-align: center;
 }
-.logo { background: url('logo.png') left bottom no-repeat; width: 160px; height: 45px; padding: 0px; margin: 2px auto 4px auto; float: none; display: block; }
-.navigation .grid { width: 400px; margin: 0 auto; overflow: auto; }
+.logo { background: url('logo8.png') left bottom no-repeat; width: 135px; height: 42px; padding: 0px; margin: 0px auto 0px auto; float: none; display: block; }
+.navigation .grid { width: 100%; margin: 0 auto; overflow: auto; }
 
-.page { z-index: 1; min-height: 100%; width: 400px; margin: 0 auto; padding: 0px; position: static; overflow: auto; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-h3 { text-align: center; font-size: 2em;}
+.page { z-index: 1; min-height: 100%; width: 400px; margin: 0 auto; padding: 55px 0px; position: static; overflow: auto; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+h3 { color: #fff; text-align: center; font-size: 2em;}
 
 .kanji {
   -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; 
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
   width: 400px; height: 400px; display: none; border: 10px solid #8bb03e;
-  margin: 50px auto 20px auto;
+  margin: 0px auto 20px auto;
 }
 
+h4 { color: #fff; text-align: center; margin: 0px 0px 5px 0px; }
 .result {
-  -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; 
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-  width: 400px; height: 400px; display: block; border: 10px solid #8bb03e;
-  margin: 50px auto 20px auto;
+  width: 200px; height: 200px; display: block; border: 10px solid #41120a;
+  margin: 0px auto 0px auto; float: left;
 }
+.result.original { width: 400px; height: 400px; float: none; margin-bottom: 20px; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; border: 10px solid #8bb03e; }
 
+#playbutton { margin-top: 250px; }
 #kanjiname { display: none; }
-#countdown { color: #f00; display: none; font-size: 40px; margin: 0 auto; text-align: center; }
-#results { display: none; }
+#countdown { color: #fff; display: none; font-size: 40px; margin: 0 auto; text-align: center; }
+.countdown { position: absolute; left: 10px; bottom: 17px; color: #ad2f19; font-size: 40px; }
+.countdown .waiting { color: #bbb; }
+#results { display: none; margin-top: 250px; }
 
-a.kanjibutton { display: block; text-align: center; color: #fff; width: 200px; line-height: 2.5em; background: #8bb03e; margin: 300px auto; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }
-
+a.kanjibutton { display: block; font-weight: 500; text-decoration: none; text-align: center; color: #fff; width: 250px; line-height: 2.5em; font-size: 1.5em; background: #8bb03e; margin: 10px auto; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }
+a.kanjibutton:hover { background: #759335; }
 
 

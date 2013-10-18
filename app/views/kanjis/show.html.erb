@@ -1,5 +1,12 @@
+<%= link_to 'Next round »', root_path, :class => 'kanjibutton' %>
 <h3> <%= @kanji.symbolName %> </h3>
-<div class="result" style="background: url(<%= @kanji.imageUrl %>)center center no-repeat #fff;"></div>
+<div class="result original" style="background: url(<%= @kanji.imageUrl %>)center center no-repeat #fff; background-size: cover;"></div>
+<h4>Results:</h4>
 <% @answers.each do |answer| %>
-<div class="result" style="background: url(<%= answer.imageUrl %>.png)center center no-repeat #fff;"></div>
+<div class="result" style="background: url(<%= answer.imageUrl %>.png)center center no-repeat #fff; background-size: cover; "></div>
 <% end %>
+
+<div class="result" style="background: #fff; background-size: cover; "></div>
+<div class="result" style="background: #fff; background-size: cover; "></div>
+<div class="result" style="background: #fff; background-size: cover; "></div>
+<div class="result" style="background: #fff; background-size: cover; "></div>

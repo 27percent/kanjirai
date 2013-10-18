@@ -2,9 +2,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
 }
-.page { width: 100%; margin: 0px; }
-.navigation { display: none; }
-.page { margin-top: 0px; padding-top: 0px; }
+.page { width: 100%; margin: 0px; padding: 0px; }
+/*.navigation { display: none; }*/
 .footer { display: none; }
 
 .fs-container {

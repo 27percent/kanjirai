@@ -13,6 +13,7 @@
   }
   sendImage = function(kanjiId, imageUrl) {
     console.log('Sending image');
+    $('.uploading').css('display', 'block');
     var promise = sendImageAjax(kanjiId, imageUrl);
     promise.success(function () { location.reload(); });
   }
@@ -48,6 +49,12 @@
   //Alrighty! Time to execute some code!
   $(document).ready(function() {
     console.log('called');
+    var waitingCount = 0;
+    setInterval(function(){
+      waitingCount++;
+      $('.waiting').html("Waiting." + new Array(waitingCount % 4).join('.'));
+      if (waitingCount == 4) { waitingCount = 1 };
+    }, 1000);
     $(document).bind('touchmove', function(e) {
       if (e.target === document.documentElement) {
         return e.preventDefault();
@@ -55,8 +62,15 @@
     });
     $('.literally').literallycanvas();
     var $lc, channel;
-    $lc = $('.literally').literallycanvas({ backgroundColor: 'whiteSmoke' });
+    $lc = $('.literally').literallycanvas({ background: 'url(\'wait.png\') center center no-repeat' });
     channel = pusher.subscribe('my-channel');
+    channel.bind('started', function(data) {
+      console.log('An event was triggered with message: ' + data.message);
+      $('canvas').css('background', 'url(\'assets/draw.png\') center center no-repeat #f5f5f5')
+      var timeLeft, countdown;
+      timeLeft = 9;
+      countdown = setInterval(function(){ timeLeft--; $('.countdown').html(timeLeft); if (timeLeft <= 0) { clearInterval(countdown);} },1000);
+    });
     channel.bind('my-event', function(data) {
       return uploadToImgur($lc).done(function(url) {
         return sendImage(data.message, url);

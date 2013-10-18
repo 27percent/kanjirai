@@ -441,7 +441,7 @@
             this.colors = {
                 primary: this.opts.primaryColor || "#000",
                 secondary: this.opts.secondaryColor || "#fff",
-                background: this.opts.backgroundColor || "rgb(230, 230, 230)"
+                background: "#f5f5f5"
             };
             $(this.canvas).css("background-color", this.colors.background);
             this.buffer = $("<canvas>").get(0);
